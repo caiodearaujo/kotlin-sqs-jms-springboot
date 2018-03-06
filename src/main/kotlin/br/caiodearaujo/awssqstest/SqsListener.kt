@@ -9,10 +9,9 @@ class SqsListener {
 
     internal val logger = LogFactory.getLog(this::class.java)
 
-            @JmsListener(destination = "TestSQS_001")
-            fun listenerSqs(request: String) {
-                this.logger.info("Received")
-                this.logger.info(request)
-            }
+    @JmsListener(destination = "TestSQS_001")
+    fun listenerSqs(request: String) {
+        this.logger.info("Received: $request")
+    }
 
 }

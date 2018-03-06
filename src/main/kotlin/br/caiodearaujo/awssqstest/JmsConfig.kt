@@ -1,7 +1,7 @@
 package br.caiodearaujo.awssqstest
 
 import com.amazon.sqs.javamessaging.SQSConnectionFactory
-import com.amazonaws.auth.profile.ProfileCredentialsProvider
+import com.amazonaws.auth.DefaultAWSCredentialsProviderChain
 import com.amazonaws.regions.Region
 import com.amazonaws.regions.Regions
 import org.springframework.context.annotation.Bean
@@ -18,8 +18,8 @@ import javax.jms.Session
 class JmsConfig {
 
     internal var connectionFactory = SQSConnectionFactory.builder()
-            .withRegion(Region.getRegion(Regions.US_EAST_1))
-            .withAWSCredentialsProvider(ProfileCredentialsProvider("user1"))
+            .withRegion(Region.getRegion(Regions.US_EAST_2))
+            .withAWSCredentialsProvider(DefaultAWSCredentialsProviderChain())
             .build()
 
 
